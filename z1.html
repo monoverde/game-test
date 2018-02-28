@@ -3,7 +3,7 @@
 <head> 
 	<meta charset="UTF-8" />
 	<title>Minimum Code</title>
-    <script src="phaser.min.js"></script>
+    <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -19,10 +19,12 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
 function preload() {
     //load background
     game.load.image('street', 'assets/street.png');
+    game.load.image('player', 'assets/billy.png');
 }
 
 function create() {
     game.add.sprite(0, 0, 'street');
+    player = game.add.sprite(80, game.world.height/2, 'player');
 }
 
 function update() {
