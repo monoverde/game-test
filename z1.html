@@ -18,14 +18,14 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
 
 function preload() {
     //load background
-    game.load.image('street', 'assets/street.png');
+    game.load.image('street', 'assets/street512.png');
     game.load.image('player', 'assets/billy.png');
 }
 
 function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     //background
-    game.add.tileSprite(0, 0, 512, 512,'street512');
+    street = game.add.tileSprite(0, 0, 512, 512,'street');
     //player
 //    player = game.add.sprite(game.world.width/2, game.world.height/2, 'player');
     player = game.add.sprite(100, 100, 'player');
@@ -42,14 +42,13 @@ function update() {
    
     player.body.velocity.setTo(0, 0);
     if (cursors.left.isDown)
-        {
-            player.body.velocity.x = -200;
-        }
-        else if (cursors.right.isDown)
-        {
-            player.body.velocity.x = 200;
-        }
-
+    {
+        player.body.velocity.x = -200;
+    }
+    else if (cursors.right.isDown)
+    {
+        player.body.velocity.x = 200;
+    }
 
 }
 
