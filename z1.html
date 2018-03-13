@@ -23,11 +23,34 @@ function preload() {
 }
 
 function create() {
-    game.add.sprite(0, 0, 'street');
-    player = game.add.sprite(80, game.world.height/2, 'player');
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+    //background
+    game.add.tileSprite(0, 0, 512, 512,'street512');
+    //player
+//    player = game.add.sprite(game.world.width/2, game.world.height/2, 'player');
+    player = game.add.sprite(100, 100, 'player');
+    game.physics.enable(player, Phasor.Physics.ARCADE);
+    //  And some controls to play the game with
+    cursors = game.input.keyboard.createCursorKeys();
+    fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
 }
 
 function update() {
+    //scroll with player
+    street.tilePosition.x = player.x
+   
+    player.body.velocity.setTo(0, 0);
+    if (cursors.left.isDown)
+        {
+            player.body.velocity.x = -200;
+        }
+        else if (cursors.right.isDown)
+        {
+            player.body.velocity.x = 200;
+        }
+
+
 }
 
 </script>
